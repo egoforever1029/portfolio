@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Войти — СпецТехАренда</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i class="fa-solid fa-truck-monster"></i></div>
+      СпецТех<span>Аренда</span>
+    </a>
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-ghost btn-sm">
+        <i class="fa-solid fa-arrow-left"></i> На главную
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="auth-container">
+  <div class="auth-card">
+
+    <div class="auth-logo">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-truck-monster"></i></div>
+        СпецТех<span>Аренда</span>
+      </a>
+    </div>
+
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Вход в аккаунт</div>
+      <div class="auth-tab" id="tab-register" onclick="switchTab('register')">Регистрация</div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="form-login" class="auth-form active" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label>Логин</label>
+        <input type="text" id="login-username" required placeholder="Введите ваш логин" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label>Пароль</label>
+        <input type="password" id="login-password" required placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <div id="login-error" class="form-error"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:13px;">
+        Войти <i class="fa-solid fa-right-to-bracket"></i>
+      </button>
+      <p style="text-align:center;margin-top:16px;font-size:0.85rem;color:var(--c-text-2);">
+        Нет аккаунта? <a href="#" onclick="switchTab('register');return false;" style="color:var(--c-yellow);font-weight:700;">Зарегистрироваться</a>
+      </p>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="form-register" class="auth-form" onsubmit="handleRegister(event)">
+      <div class="form-group">
+        <label>ФИО</label>
+        <input type="text" id="reg-fullname" required placeholder="Иванов Иван Иванович" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label>Логин (имя пользователя)</label>
+        <input type="text" id="reg-username" required placeholder="IvanIvanov" autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label>Номер телефона</label>
+        <input type="tel" id="reg-phone" required placeholder="+7 (999) 999-99-99" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label>Пароль</label>
+        <input type="password" id="reg-password" required placeholder="Минимум 6 символов" autocomplete="new-password">
+      </div>
+      <div id="reg-error" class="form-error"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:13px;">
+        Создать аккаунт <i class="fa-solid fa-user-plus"></i>
+      </button>
+      <p style="text-align:center;margin-top:16px;font-size:0.85rem;color:var(--c-text-2);">
+        Уже есть аккаунт? <a href="#" onclick="switchTab('login');return false;" style="color:var(--c-yellow);font-weight:700;">Войти</a>
+      </p>
+    </form>
+
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

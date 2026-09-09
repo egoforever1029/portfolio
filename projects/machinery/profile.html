@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет — СпецТехАренда</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><i class="fa-solid fa-truck-monster"></i></div>
+      СпецТех<span>Аренда</span>
+    </a>
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-secondary btn-sm">
+        <i class="fa-solid fa-arrow-left"></i> На главную
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="dashboard-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-user">
+      <div class="sidebar-user-name" id="profile-fullname">Загрузка...</div>
+      <div class="sidebar-user-role" id="profile-phone">+7 (---) ---</div>
+    </div>
+
+    <div class="sidebar-label">Навигация</div>
+    <a class="sidebar-link active" href="profile.html">
+      <i class="fa-solid fa-clock-rotate-left"></i> Мои заявки
+    </a>
+    <div id="admin-panel-link-container"></div>
+    <a class="sidebar-link" href="index.html">
+      <i class="fa-solid fa-arrow-left"></i> На главную
+    </a>
+
+    <div class="sidebar-spacer"></div>
+
+    <a class="sidebar-link danger" onclick="logout()">
+      <i class="fa-solid fa-right-from-bracket"></i> Выйти
+    </a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="page-header">
+      <div class="page-title">Мои заявки</div>
+      <div class="page-subtitle">История аренды спецтехники и текущие статусы ваших заказов</div>
+    </div>
+
+    <!-- Summary stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-total-bookings">—</div>
+        <div class="stat-label">Всего заказов</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-pending-bookings">—</div>
+        <div class="stat-label">На рассмотрении</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="stat-total-spent">—</div>
+        <div class="stat-label">Сумма аренды</div>
+      </div>
+    </div>
+
+    <!-- Bookings table -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-title">История заказов</div>
+        <a href="index.html#catalog" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-plus"></i> Новый заказ
+        </a>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Техника</th>
+              <th>Период аренды</th>
+              <th>Сумма</th>
+              <th>Статус</th>
+              <th>Комментарий</th>
+            </tr>
+          </thead>
+          <tbody id="bookings-table-body">
+            <tr>
+              <td colspan="5" style="text-align:center;padding:40px;color:var(--c-text-2);">
+                Загрузка заявок...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<script src="js/profile.js"></script>
+</body>
+</html>

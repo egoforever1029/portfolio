@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Портфолио IT-специалиста Грачёва Кирилла. Системное администрирование, веб-разработка, дизайн и автоматизация процессов с помощью AI.">
+  <title>Грачёв Кирилл — Портфолио IT-специалиста</title>
+  
+  <!-- Шрифты Google: Inter, Space Grotesk, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <!-- Стили портфолио -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Фоновый интерактивный холст с частицами -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Верхняя панель навигации -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand">
+        <div class="brand-avatar">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Грачёв Кирилл</span>
+          <span class="brand-role">IT-специалист // SysAdmin & Web</span>
+        </div>
+      </a>
+
+      <div class="nav-status-badge">
+        <span class="status-dot"></span>
+        <span class="status-text">Открыт к предложениям</span>
+      </div>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link">Обо мне</a>
+        <a href="#experience" class="nav-link">Опыт (3 года)</a>
+        <a href="#ai-stack" class="nav-link">ИИ-конвейер</a>
+        <a href="#skills" class="nav-link">Навыки</a>
+        <a href="#projects" class="nav-link">Проекты</a>
+        <a href="#case-study" class="nav-link">Кейс</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-sm" id="open-resume-btn" title="Открыть резюме">
+          <i class="fa-regular fa-file-lines"></i>
+          <span>Резюме</span>
+        </button>
+        <a href="https://t.me/EGO_V1" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          <i class="fa-brands fa-telegram"></i>
+          <span>Telegram</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Открыть меню">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главный экран (Hero Section) -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-chip">
+          <i class="fa-solid fa-microchip"></i>
+          <span>IT SPECIALIST // SYSADMIN & WEB // AI AUTOMATION</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Привет, я <span class="gradient-text">Грачёв Кирилл</span>.<br>
+          Инженер <span class="highlight-underline">ИТ-решений</span> & AI.
+        </h1>
+
+        <p class="hero-subtitle">
+          3+ года опыта в <strong>ООО «МЗ Прогресс»</strong> на стыке системного администрирования, веб-дизайна и разработки. Внедряю сквозные <strong>AI-пайплайны</strong> (Cursor, Claude, ChatGPT, Antigravity, Grok) для ускорения веб-разработки, автоматизации инфраструктуры и решения нестандартных задач.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary btn-lg">
+            <span>Изучить проекты</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="https://t.me/EGO_V1" target="_blank" rel="noopener" class="btn btn-glass btn-lg" id="tg-hero-btn">
+            <i class="fa-brands fa-telegram"></i>
+            <span>Написать в Telegram</span>
+          </a>
+          <button class="btn btn-glass btn-lg" id="hero-resume-trigger">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Резюме / CV</span>
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">3 года</div>
+            <div class="stat-label">Опыт в ООО «МЗ Прогресс»</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">3 сайта</div>
+            <div class="stat-label">С нуля для группы компаний</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">90%+</div>
+            <div class="stat-label">SLA & KPI в срок благодаря AI</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="terminal-card glass-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">grachev@mz-progress: ~/ai-pipeline</div>
+          </div>
+          <div class="terminal-body font-mono">
+            <div class="term-line">
+              <span class="term-prompt">$</span> <span class="term-cmd">whoami --verbose</span>
+            </div>
+            <div class="term-output">
+{
+  <span class="json-key">"name"</span>: <span class="json-str">"Грачёв Кирилл"</span>,
+  <span class="json-key">"role"</span>: <span class="json-str">"Системный администратор / Веб-дизайнер"</span>,
+  <span class="json-key">"company"</span>: <span class="json-str">"ООО «МЗ Прогресс» (3 года)"</span>,
+  <span class="json-key">"telegram"</span>: <span class="json-str">"@EGO_V1"</span>,
+  <span class="json-key">"email"</span>: <span class="json-str">"provokator997@gmail.com"</span>,
+  <span class="json-key">"ai_tools"</span>: [<span class="json-str">"Cursor"</span>, <span class="json-str">"Claude"</span>, <span class="json-str">"ChatGPT"</span>, <span class="json-str">"Antigravity"</span>, <span class="json-str">"Grok"</span>],
+  <span class="json-key">"kpi_rate"</span>: <span class="json-str">"90%+ SLA on-time"</span>
+}
+            </div>
+            <div class="term-line">
+              <span class="term-prompt">$</span> <span class="term-cmd">cat case_speedrun.log</span>
+            </div>
+            <div class="term-output success-text">
+              ✔ Задача: многостраничный сайт с нуля за 14 дней<br>
+              ✔ Решение: ИИ-конвейер (Grok + Antigravity + Claude + Cursor)<br>
+              ✔ Итог: сдан за 9 дней, 100% экономия бюджета, 0 простоев
+            </div>
+            <div class="term-line">
+              <span class="term-prompt">$</span> <span class="term-cursor"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция: Опыт работы (ООО «МЗ Прогресс») -->
+  <section class="section experience-section" id="experience">
+    <div class="container">
+      <div class="section-badge">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>ПРАКТИЧЕСКИЙ ОПЫТ</span>
+      </div>
+      <h2 class="section-title">Опыт работы: ООО «МЗ Прогресс»</h2>
+      <p class="section-subtitle">
+        Более 3 лет успешного совмещения системного администрирования, веб-дизайна и внедрения искусственного интеллекта в ежедневные бизнес-процессы.
+      </p>
+
+      <div class="exp-main-card glass-card">
+        <div class="exp-header-row">
+          <div class="exp-company-block">
+            <div class="company-logo-badge">МЗ</div>
+            <div>
+              <h3 class="company-name">ООО «МЗ Прогресс»</h3>
+              <div class="company-role-tag">Системный администратор / Веб-дизайнер</div>
+            </div>
+          </div>
+          <div class="exp-period-badge">
+            <i class="fa-regular fa-calendar"></i>
+            <span>3 года практического стажа</span>
+          </div>
+        </div>
+
+        <hr class="card-divider">
+
+        <div class="exp-details-grid">
+          <div class="exp-col">
+            <h4><i class="fa-solid fa-list-check text-cyan"></i> Основные обязанности:</h4>
+            <ul class="styled-list">
+              <li><strong>ИТ-инфраструктура и сервера:</strong> Комплексное администрирование серверов, локальных и корпоративных сетей, резервного копирования и мониторинга доступности сервисов.</li>
+              <li><strong>Веб-разработка и UX/UI:</strong> Проектирование архитектуры интерфейсов, дизайн и запуск сайтов для <strong>3 компаний группы</strong> с нуля.</li>
+              <li><strong>Внедрение ИИ-инструментов:</strong> Построение сквозных пайплайнов для генерации кода, скриптов автоматизации, графики и прототипирования.</li>
+              <li><strong>Техподдержка и SLA:</strong> Быстрое устранение аппаратных и программных сбоев, консультация и поддержка пользователей.</li>
+            </ul>
+          </div>
+
+          <div class="exp-col">
+            <h4><i class="fa-solid fa-chart-line text-emerald"></i> Результаты и работа с KPI:</h4>
+            <ul class="styled-list">
+              <li><strong>Работа по SLA и KPI:</strong> Строгое соблюдение времени реагирования на сбои инфраструктуры и проектных дедлайнов по веб-дизайну.</li>
+              <li><strong>90%+ выполнение планов в срок:</strong> Достигнуто благодаря выстраиванию автоматизации и оптимизации рабочих процессов.</li>
+              <li><strong>Решение сложных вызовов:</strong> При возникновении аварий сисадмина дедлайны по дизайну не срывались — рутина перекрывалась автоматизированным мониторингом и AI-генерацией.</li>
+              <li><strong>Экономия ресурсов:</strong> Самостоятельный запуск веб-проектов группы сэкономил компании сотни тысяч рублей на внешних подрядчиках.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-skills-bar">
+          <span class="exp-pill"><i class="fa-solid fa-server"></i> Системное администрирование</span>
+          <span class="exp-pill"><i class="fa-solid fa-palette"></i> UX/UI & Веб-дизайн</span>
+          <span class="exp-pill"><i class="fa-solid fa-robot"></i> AI-автоматизация</span>
+          <span class="exp-pill"><i class="fa-solid fa-network-wired"></i> Сети и Серверы</span>
+          <span class="exp-pill"><i class="fa-solid fa-code"></i> Frontend & Backend</span>
+          <span class="exp-pill"><i class="fa-solid fa-shield-halved"></i> SLA & Безопасность</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция: ИИ-стек и Инструменты -->
+  <section class="section ai-section" id="ai-stack">
+    <div class="container">
+      <div class="section-badge">
+        <i class="fa-solid fa-brain"></i>
+        <span>AI ENGINEERING & TOOLS</span>
+      </div>
+      <h2 class="section-title">С какими ИИ-инструментами я работаю</h2>
+      <p class="section-subtitle">
+        Практический опыт Prompt Engineering и ежедневной интеграции нейросетей в инженерные и продуктовые задачи.
+      </p>
+
+      <div class="ai-tools-grid">
+        <!-- Tool 1: Cursor -->
+        <div class="ai-tool-card glass-card">
+          <div class="ai-tool-header">
+            <div class="ai-tool-icon" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+            <div>
+              <h4>Cursor IDE</h4>
+              <span class="ai-tool-sub">AI-First Code Editor</span>
+            </div>
+          </div>
+          <p>Быстрая навигация по кодовой базе, интеллектуальный рефакторинг, моментальный поиск багов и генерация скриптов автоматизации серверов и сетей.</p>
+        </div>
+
+        <!-- Tool 2: Claude -->
+        <div class="ai-tool-card glass-card">
+          <div class="ai-tool-header">
+            <div class="ai-tool-icon" style="background: rgba(217, 119, 6, 0.15); color: #f59e0b;">
+              <i class="fa-solid fa-code-branch"></i>
+            </div>
+            <div>
+              <h4>Claude (Anthropic)</h4>
+              <span class="ai-tool-sub">Архитектура и чистый код</span>
+            </div>
+          </div>
+          <p>Глубокое архитектурное планирование, написание комплексного бэкенда на Node.js, генерация надежных SQL-схем и проработка безопасности веб-приложений.</p>
+        </div>
+
+        <!-- Tool 3: ChatGPT -->
+        <div class="ai-tool-card glass-card">
+          <div class="ai-tool-header">
+            <div class="ai-tool-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <div>
+              <h4>ChatGPT (OpenAI)</h4>
+              <span class="ai-tool-sub">Верстка и логика</span>
+            </div>
+          </div>
+          <p>Быстрое прототипирование JavaScript-логики, адаптивная верстка CSS3, решение алгоритмических задач и создание интерактивных компонентов интерфейса.</p>
+        </div>
+
+        <!-- Tool 4: Grok -->
+        <div class="ai-tool-card glass-card">
+          <div class="ai-tool-header">
+            <div class="ai-tool-icon" style="background: rgba(236, 72, 153, 0.15); color: #ec4899;">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div>
+              <h4>Grok (xAI)</h4>
+              <span class="ai-tool-sub">Аналитика и поиск решений</span>
+            </div>
+          </div>
+          <p>Экспресс-анализ трендов современного веба, исследование конкурентов, поиск нестандартных технических решений и оперативная аналитика задач.</p>
+        </div>
+
+        <!-- Tool 5: Antigravity -->
+        <div class="ai-tool-card glass-card">
+          <div class="ai-tool-header">
+            <div class="ai-tool-icon" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <h4>Antigravity</h4>
+              <span class="ai-tool-sub">UI/UX & Прототипирование</span>
+            </div>
+          </div>
+          <p>Агентная генерация полноценных веб-проектов, мгновенная сборка UI-компонентов, развертывание сред и автоматизация рабочих процессов.</p>
+        </div>
+
+        <!-- Tool 6: Midjourney & AI Graphics -->
+        <div class="ai-tool-card glass-card">
+          <div class="ai-tool-header">
+            <div class="ai-tool-icon" style="background: rgba(0, 229, 255, 0.15); color: #00e5ff;">
+              <i class="fa-solid fa-image"></i>
+            </div>
+            <div>
+              <h4>Midjourney & Vision AI</h4>
+              <span class="ai-tool-sub">Генерация графики</span>
+            </div>
+          </div>
+          <p>Prompt engineering для генерации графических ассетов, визуальных концептов сайтов, текстур планет и промо-материалов без дизайнеров со стороны.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция: Кейс-стади (Точка А -> Действия -> Точка Б) -->
+  <section class="section case-section" id="case-study">
+    <div class="container">
+      <div class="section-badge">
+        <i class="fa-solid fa-fire"></i>
+        <span>РЕАЛЬНЫЙ КЕЙС</span>
+      </div>
+      <h2 class="section-title">Практический кейс: решение задачи через ИИ</h2>
+      <p class="section-subtitle">
+        Пример реализации критической бизнес-задачи без бюджета и подрядчиков в условиях жесткого дедлайна.
+      </p>
+
+      <div class="case-pipeline-card glass-card">
+        <div class="case-steps-row">
+          
+          <!-- Точка А -->
+          <div class="case-step-box step-start">
+            <div class="case-step-tag red-tag">
+              <i class="fa-solid fa-flag"></i> ТОЧКА «А» (ВЫЗОВ)
+            </div>
+            <h3>Многостраничный сайт с нуля за 14 дней</h3>
+            <ul class="case-list">
+              <li><strong>Бюджет:</strong> 0 руб. на внешних подрядчиков.</li>
+              <li><strong>Дедлайн:</strong> ровно 2 недели до промо-запуска.</li>
+              <li><strong>Сложность:</strong> необходимо совмещать с основной нагрузкой системного администратора (сервера, пользователи, сеть).</li>
+            </ul>
+          </div>
+
+          <div class="case-step-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <!-- Действия -->
+          <div class="case-step-box step-actions">
+            <div class="case-step-tag yellow-tag">
+              <i class="fa-solid fa-gears"></i> ДЕЙСТВИЯ (ИИ-КОНВЕЙЕР)
+            </div>
+            <h3>Построение сквозного AI-пайплайна</h3>
+            <ul class="case-list">
+              <li><strong>Grok:</strong> экспресс-анализ трендов рынка и структуры топовых сайтов конкурентов.</li>
+              <li><strong>Antigravity:</strong> быстрая генерация архитектуры страниц и UI-компонентов.</li>
+              <li><strong>Claude & ChatGPT:</strong> верстка адаптивного интерфейса и логики форм.</li>
+              <li><strong>Cursor:</strong> мгновенный поиск ошибок, рефакторинг и оптимизация скорости.</li>
+            </ul>
+          </div>
+
+          <div class="case-step-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <!-- Точка Б -->
+          <div class="case-step-box step-finish">
+            <div class="case-step-tag green-tag">
+              <i class="fa-solid fa-trophy"></i> ТОЧКА «Б» (РЕЗУЛЬТАТ)
+            </div>
+            <h3>Запуск за 9 дней вместо 14</h3>
+            <ul class="case-list">
+              <li><strong>Сроки:</strong> проект полностью готов, протестирован и запущен за <strong>9 дней</strong>.</li>
+              <li><strong>Конверсия:</strong> сайт сразу начал успешно собирать лиды и заявки.</li>
+              <li><strong>Экономия:</strong> 100% экономия бюджета компании без единого сбоя в инфраструктуре сисадмина.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция: Автоматизация в жизни и работе -->
+  <section class="section auto-section" id="automation">
+    <div class="container">
+      <div class="section-badge">
+        <i class="fa-solid fa-robot"></i>
+        <span>АВТОМАТИЗАЦИЯ</span>
+      </div>
+      <h2 class="section-title">Что уже автоматизировано с помощью ИИ</h2>
+      <p class="section-subtitle">
+        Как применение нейросетей трансформировало подходы к работе, учебе и повседневной продуктивности.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card glass-card">
+          <div class="about-icon cyan">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3>В инженерной работе</h3>
+          <p>
+            Оптимизировал веб-разработку и ИТ-рутину через связку <strong>Cursor, Claude, ChatGPT, Antigravity и Grok</strong>. Ускорил верстку в 2-3 раза, автоматизировал рефакторинг кода и генерацию Bash/PowerShell скриптов для серверов.
+          </p>
+        </div>
+
+        <div class="about-card glass-card">
+          <div class="about-icon purple">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h3>В учебе и исследованиях</h3>
+          <p>
+            Полностью автоматизировал сбор научно-технических данных и синтез сложных академических текстов. Успешно защитил курсовые работы и <strong>дипломный проект с оригинальностью 99%</strong> под требования самых строгих систем антиплагиата.
+          </p>
+        </div>
+
+        <div class="about-card glass-card">
+          <div class="about-icon emerald">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <h3>В личной продуктивности</h3>
+          <p>
+            Ежедневно использую ИИ как персонального ассистента: структурирование задач, анализ объемной документации, планирование рабочего дня и моментальный поиск решений для бытовых и инженерных задач.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция: Навыки (Tech Stack) -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-badge">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>ТЕХНОЛОГИЧЕСКИЙ СТЕК</span>
+      </div>
+      <h2 class="section-title">Инструменты и компетенции</h2>
+      <p class="section-subtitle">
+        Баланс глубоких серверных технологий, современного веб-фронтенда и инструментов искусственного интеллекта.
+      </p>
+
+      <!-- Фильтры навыков -->
+      <div class="skill-filters">
+        <button class="skill-filter-btn active" data-filter="all">Все технологии</button>
+        <button class="skill-filter-btn" data-filter="ai">AI & Автоматизация</button>
+        <button class="skill-filter-btn" data-filter="sysadmin">Сисадмин & Сети</button>
+        <button class="skill-filter-btn" data-filter="backend">Backend & DB</button>
+        <button class="skill-filter-btn" data-filter="frontend">Frontend & UX/UI</button>
+      </div>
+
+      <div class="skills-grid" id="skills-grid">
+        <!-- AI Tools -->
+        <div class="skill-card glass-card" data-category="ai">
+          <div class="skill-top">
+            <i class="fa-solid fa-brain skill-icon purple"></i>
+            <span class="skill-level">Expertise</span>
+          </div>
+          <h4>Prompt Engineering</h4>
+          <p>Проектирование сложных контекстных промптов для Claude, ChatGPT и Cursor. Сквозные конвейеры разработки.</p>
+        </div>
+
+        <div class="skill-card glass-card" data-category="ai">
+          <div class="skill-top">
+            <i class="fa-solid fa-wand-magic-sparkles skill-icon cyan"></i>
+            <span class="skill-level">Daily</span>
+          </div>
+          <h4>Cursor & Antigravity</h4>
+          <p>Агентная генерация интерфейсов, мгновенная отладка, автоматизация рефакторинга и сборки проектов.</p>
+        </div>
+
+        <!-- Sysadmin -->
+        <div class="skill-card glass-card" data-category="sysadmin">
+          <div class="skill-top">
+            <i class="fa-solid fa-server skill-icon blue"></i>
+            <span class="skill-level">3 года опыта</span>
+          </div>
+          <h4>Администрирование серверов</h4>
+          <p>Windows Server, Linux, настройка сетевых протоколов, служба каталогов, резервное копирование и безопасность.</p>
+        </div>
+
+        <div class="skill-card glass-card" data-category="sysadmin">
+          <div class="skill-top">
+            <i class="fa-solid fa-network-wired skill-icon emerald"></i>
+            <span class="skill-level">SLA 90%+</span>
+          </div>
+          <h4>Сетевая инфраструктура</h4>
+          <p>Маршрутизация, VPN, мониторинг сетевого трафика, оперативное реагирование на сбои и защита периметра.</p>
+        </div>
+
+        <!-- Backend -->
+        <div class="skill-card glass-card" data-category="backend">
+          <div class="skill-top">
+            <i class="fa-brands fa-node-js skill-icon green"></i>
+            <span class="skill-level">Core</span>
+          </div>
+          <h4>Node.js & Express</h4>
+          <p>Разработка серверной части, RESTful API, маршрутизация, middleware, cookie-сессии и работа с npm.</p>
+        </div>
+
+        <div class="skill-card glass-card" data-category="backend">
+          <div class="skill-top">
+            <i class="fa-solid fa-database skill-icon yellow"></i>
+            <span class="skill-level">SQL</span>
+          </div>
+          <h4>SQLite & Базы данных</h4>
+          <p>Проектирование схем таблиц, внешние ключи, транзакции, CRUD операции, индексы и безопасность данных.</p>
+        </div>
+
+        <!-- Frontend & Design -->
+        <div class="skill-card glass-card" data-category="frontend">
+          <div class="skill-top">
+            <i class="fa-brands fa-js skill-icon yellow"></i>
+            <span class="skill-level">Proficient</span>
+          </div>
+          <h4>JavaScript (ES6+)</h4>
+          <p>Async/Await, промисы, модули, манипуляции с DOM, работа с Fetch API и интерактивные сценарии.</p>
+        </div>
+
+        <div class="skill-card glass-card" data-category="frontend">
+          <div class="skill-top">
+            <i class="fa-solid fa-palette skill-icon cyan"></i>
+            <span class="skill-level">UX/UI</span>
+          </div>
+          <h4>Веб-дизайн & Canvas</h4>
+          <p>Проектирование UX/UI, 2D рендеринг на Canvas, симуляции, кастомные курсоры и анимации интерфейсов.</p>
+        </div>
+
+        <div class="skill-card glass-card" data-category="frontend">
+          <div class="skill-top">
+            <i class="fa-brands fa-css3-alt skill-icon blue"></i>
+            <span class="skill-level">Advanced</span>
+          </div>
+          <h4>CSS3 / Flex & Grid</h4>
+          <p>Адаптивная верстка (Mobile-first), Glassmorphism, CSS-переменные, темные и светлые темы оформления.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция: Проекты (Projects Showcase) -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-badge">
+        <i class="fa-solid fa-laptop-code"></i>
+        <span>ПОРТФОЛИО</span>
+      </div>
+      <h2 class="section-title">Практические веб-проекты</h2>
+      <p class="section-subtitle">
+        Два комплексных проекта: научно-популярная интерактивная платформа на Canvas и полноценный Fullstack веб-сервис аренды техники.
+      </p>
+
+      <div class="projects-wrapper">
+
+        <!-- ПРОЕКТ 1: STELLARIS (Space Landing) -->
+        <article class="project-card glass-card">
+          <div class="project-media">
+            <img src="assets/images/hero_nebula.jpg" alt="Проект STELLARIS — Космическая Одиссея" class="project-img">
+            <div class="project-overlay">
+              <span class="project-badge sci-fi">
+                <i class="fa-solid fa-shuttle-space"></i> Creative Frontend
+              </span>
+              <div class="project-quick-links">
+                <a href="projects/space-landing/index.html" target="_blank" class="quick-link-btn" title="Открыть демо">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <div class="project-header">
+              <div class="project-meta">
+                <span class="project-type">Интерактивный веб-проект</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">STELLARIS — Космическая Одиссея</h3>
+            </div>
+
+            <p class="project-desc">
+              Иммерсивный научно-популярный веб-портал, посвященный астрономии и космонавтике. Оснащен процедурным генератором звёздного неба на HTML5 Canvas, интерактивным каталогом планет с физическими параметрами, хронологией космических вех, физическим симулятором гравитации и панелью администратора.
+            </p>
+
+            <div class="project-features">
+              <div class="feature-tag"><i class="fa-solid fa-sparkles"></i> Canvas 2D частицы</div>
+              <div class="feature-tag"><i class="fa-solid fa-atom"></i> Симулятор гравитации</div>
+              <div class="feature-tag"><i class="fa-solid fa-globe"></i> Интерактивный атлас</div>
+              <div class="feature-tag"><i class="fa-solid fa-sliders"></i> Панель управления</div>
+            </div>
+
+            <div class="project-tech-tags">
+              <span class="tag">HTML5 Canvas</span>
+              <span class="tag">Vanilla JavaScript</span>
+              <span class="tag">Glassmorphism CSS3</span>
+              <span class="tag">Sound & Audio API</span>
+              <span class="tag">Responsive</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="projects/space-landing/index.html" target="_blank" class="btn btn-primary">
+                <i class="fa-solid fa-play"></i>
+                <span>Запустить демо</span>
+              </a>
+              <a href="projects/space-landing/admin.html" target="_blank" class="btn btn-outline">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span>Админ-панель</span>
+              </a>
+              <button class="btn btn-glass" onclick="openProjectModal('space')">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Архитектура</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ПРОЕКТ 2: СпецТехАренда (Special Machinery Rental) -->
+        <article class="project-card glass-card reverse">
+          <div class="project-media">
+            <img src="https://images.unsplash.com/photo-1590739293931-a04f8b4f5eed?auto=format&fit=crop&w=1200&q=85" alt="СпецТехАренда — Сервис аренды строительной техники" class="project-img">
+            <div class="project-overlay">
+              <span class="project-badge fullstack">
+                <i class="fa-solid fa-truck-monster"></i> Fullstack Web App
+              </span>
+              <div class="project-quick-links">
+                <a href="projects/machinery/index.html" target="_blank" class="quick-link-btn" title="Открыть витрину">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <div class="project-header">
+              <div class="project-meta">
+                <span class="project-type">Fullstack платформа & B2B/B2C</span>
+                <span class="project-year">2026</span>
+              </div>
+              <h3 class="project-title">СпецТехАренда — Платформа аренды спецтехники</h3>
+            </div>
+
+            <p class="project-desc">
+              Полнофункциональная веб-платформа для бронирования и управления парком спецтехники (экскаваторы, краны, самосвалы КАМАЗ). Включает защищенную авторизацию по JWT с HttpOnly cookies, разграничение прав клиентов и администраторов, фильтрацию каталога, расчет стоимости аренды, личный кабинет и панель управления заказами.
+            </p>
+
+            <div class="project-features">
+              <div class="feature-tag"><i class="fa-solid fa-user-lock"></i> JWT & Bcrypt Auth</div>
+              <div class="feature-tag"><i class="fa-solid fa-database"></i> SQLite3 Database</div>
+              <div class="feature-tag"><i class="fa-solid fa-calendar-check"></i> Онлайн-бронирование</div>
+              <div class="feature-tag"><i class="fa-solid fa-chart-line"></i> Панель администратора</div>
+            </div>
+
+            <div class="project-tech-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">SQLite3</span>
+              <span class="tag">JWT Authentication</span>
+              <span class="tag">Cookie-Parser</span>
+              <span class="tag">REST API</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="projects/machinery/index.html" target="_blank" class="btn btn-primary">
+                <i class="fa-solid fa-truck"></i>
+                <span>Каталог техники</span>
+              </a>
+              <a href="projects/machinery/admin.html" target="_blank" class="btn btn-outline">
+                <i class="fa-solid fa-id-badge"></i>
+                <span>Админка</span>
+              </a>
+              <button class="btn btn-glass" onclick="openProjectModal('machinery')">
+                <i class="fa-solid fa-code"></i>
+                <span>Архитектура & API</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция: Контакты -->
+  <section class="section contacts-section" id="contacts">
+    <div class="container">
+      <div class="section-badge">
+        <i class="fa-regular fa-paper-plane"></i>
+        <span>ПРЯМАЯ СВЯЗЬ</span>
+      </div>
+      <h2 class="section-title">Контакты для работодателей</h2>
+      <p class="section-subtitle">
+        Открыт к предложениям о работе, вакансиям и проектам. Всегда на связи в Telegram и по электронной почте.
+      </p>
+
+      <div class="contacts-grid">
+        <div class="contacts-cards">
+          <!-- Telegram -->
+          <a href="https://t.me/EGO_V1" target="_blank" rel="noopener" class="contact-card glass-card active-contact">
+            <div class="contact-icon tg-icon">
+              <i class="fa-brands fa-telegram"></i>
+            </div>
+            <div class="contact-text">
+              <span class="contact-label">Telegram (наиболее быстрый ответ)</span>
+              <span class="contact-value">@EGO_V1</span>
+            </div>
+            <i class="fa-solid fa-arrow-right contact-arrow"></i>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:provokator997@gmail.com" class="contact-card glass-card">
+            <div class="contact-icon email-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <span class="contact-label">Электронная почта</span>
+              <span class="contact-value">provokator997@gmail.com</span>
+            </div>
+            <i class="fa-solid fa-arrow-right contact-arrow"></i>
+          </a>
+
+          <!-- Опыт -->
+          <div class="contact-card glass-card">
+            <div class="contact-icon loc-icon">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="contact-text">
+              <span class="contact-label">Опыт работы</span>
+              <span class="contact-value">3 года в ООО «МЗ Прогресс»</span>
+            </div>
+          </div>
+
+          <!-- Специализация -->
+          <div class="contact-card glass-card">
+            <div class="contact-icon code-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="contact-text">
+              <span class="contact-label">Специализация</span>
+              <span class="contact-value">IT-специалист // SysAdmin & Web</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Интерактивная форма для работодателя -->
+        <div class="contact-form-wrapper glass-card">
+          <h3 class="form-title">Отправить сообщение</h3>
+          <p class="form-subtitle">Заполните форму ниже, и я отвечу вам в течение часа.</p>
+          
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="form-name">Ваше имя или компания</label>
+              <input type="text" id="form-name" required placeholder="Например: Анна (HR) / ООО Технологии">
+            </div>
+
+            <div class="form-group">
+              <label for="form-contact">Контакт для обратной связи</label>
+              <input type="text" id="form-contact" required placeholder="Telegram @username или Email">
+            </div>
+
+            <div class="form-group">
+              <label for="form-msg">Предложение или вопрос</label>
+              <textarea id="form-msg" rows="4" required placeholder="Опишите вакансию или проект..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
+              <i class="fa-regular fa-paper-plane"></i>
+              <span>Отправить сообщение</span>
+            </button>
+
+            <div class="form-status" id="form-status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал сайта (Footer) -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <span class="footer-name">Грачёв Кирилл</span>
+          <span class="footer-role">IT-специалист</span>
+        </div>
+        <p class="footer-copy">© 2026 Грачёв Кирилл. Все права защищены. Разработано с использованием современных веб-технологий и ИИ-инструментов.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Вверх</a>
+        <a href="#experience">Опыт (3 года)</a>
+        <a href="#ai-stack">ИИ-конвейер</a>
+        <a href="#projects">Проекты</a>
+        <a href="https://t.me/EGO_V1" target="_blank">Telegram: @EGO_V1</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО 1: Архитектура STELLARIS -->
+  <div class="modal-overlay" id="modal-space">
+    <div class="modal-window glass-card">
+      <button class="modal-close" onclick="closeModal('modal-space')"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-badge sci-fi">Архитектурный разбор</div>
+      <h3 class="modal-title">STELLARIS — Космическая Одиссея</h3>
+      
+      <div class="modal-body">
+        <h4>Ключевые инженерные решения:</h4>
+        <ul class="modal-list">
+          <li><strong>Интерактивный движок частиц (Canvas 2D):</strong> Процедурная генерация звездного поля с эффектом параллакса и реакцией на координаты курсора мыши (60 кадров/сек).</li>
+          <li><strong>Физический симулятор гравитации:</strong> Моделирование свободного падения и орбитального движения с настраиваемыми параметрами гравитации планет (Земля, Марс, Юпитер, Луна, невесомость).</li>
+          <li><strong>Интерактивный планетарий:</strong> Динамическое переключение небесных тел с анимацией свечения, обновлением параметров атмосферы, температуры и расстояния.</li>
+          <li><strong>Панель администратора (CMS):</strong> Управление событиями космической хронологии, отправленными сообщениями и телеметрией системы.</li>
+        </ul>
+
+        <h4>Структура файлов:</h4>
+        <div class="modal-code font-mono">
+space-landing/
+├── index.html        # Главный интерактивный интерфейс
+├── style.css         # Glassmorphism, неоновые акценты, анимации
+├── app.js            # Движок Canvas, логика вкладок, симулятор гравитации
+├── admin.html        # Панель управления и телеметрии
+├── admin.css         # Стилизация интерфейса оператора
+├── admin.js          # Логика управления миссиями и контентом
+└── assets/           # Оптимизированные текстуры планет
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a href="projects/space-landing/index.html" target="_blank" class="btn btn-primary">
+          <i class="fa-solid fa-play"></i>
+          <span>Открыть живой проект</span>
+        </a>
+        <button class="btn btn-outline" onclick="closeModal('modal-space')">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО 2: Архитектура СпецТехАренда -->
+  <div class="modal-overlay" id="modal-machinery">
+    <div class="modal-window glass-card">
+      <button class="modal-close" onclick="closeModal('modal-machinery')"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-badge fullstack">Fullstack архитектура</div>
+      <h3 class="modal-title">СпецТехАренда — Сервис аренды спецтехники</h3>
+      
+      <div class="modal-body">
+        <h4>Архитектурный стек и безопасность:</h4>
+        <ul class="modal-list">
+          <li><strong>REST API сервер:</strong> Построен на <code>Express.js</code>, реализует чистые HTTP-маршруты для каталога, аутентификации, бронирования и администрирования.</li>
+          <li><strong>Безопасность JWT & Cookies:</strong> Токены авторизации генерируются с секретным ключом и передаются через <code>HttpOnly cookies</code>, предотвращая XSS-атаки.</li>
+          <li><strong>Хэширование паролей:</strong> Защита учетных записей с помощью <code>bcryptjs</code> (соление и стойкое шифрование).</li>
+          <li><strong>База данных SQLite3:</strong> Таблицы <code>users</code>, <code>machinery</code>, <code>bookings</code> с валидацией целостности данных и внешними ключами.</li>
+          <li><strong>Ролевая модель доступа (RBAC):</strong> Разделение привилегий клиентов (оформление заказа, история в профиле) и администраторов (управление техникой, изменение статусов заявок).</li>
+        </ul>
+
+        <h4>Основные API эндпоинты:</h4>
+        <div class="modal-code font-mono">
+POST   /api/auth/register    # Регистрация пользователя с хэшированием
+POST   /api/auth/login       # Вход, выдача JWT токена
+GET    /api/auth/me          # Проверка активной сессии
+GET    /api/machinery        # Получение каталога техники с фильтрацией
+POST   /api/bookings         # Создание бронирования с валидацией дат
+GET    /api/bookings/my      # Получение заказов текущего пользователя
+GET    /api/admin/bookings   # Полный мониторинг заказов для администратора
+PATCH  /api/admin/bookings/:id # Обновление статуса (подтвержден/отклонен)
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a href="projects/machinery/index.html" target="_blank" class="btn btn-primary">
+          <i class="fa-solid fa-truck"></i>
+          <span>Открыть витрину</span>
+        </a>
+        <button class="btn btn-outline" onclick="closeModal('modal-machinery')">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО 3: Резюме (CV Modal) -->
+  <div class="modal-overlay" id="modal-resume">
+    <div class="modal-window glass-card resume-modal">
+      <button class="modal-close" onclick="closeModal('modal-resume')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="resume-sheet" id="resume-sheet">
+        <div class="resume-header">
+          <div>
+            <h2 class="resume-name">Грачёв Кирилл</h2>
+            <div class="resume-title">IT-специалист // Системный администратор / Веб-дизайнер // AI-инженер</div>
+          </div>
+          <div class="resume-contact-block">
+            <div><i class="fa-solid fa-envelope"></i> provokator997@gmail.com</div>
+            <div><i class="fa-brands fa-telegram"></i> Telegram: @EGO_V1 (https://t.me/EGO_V1)</div>
+            <div><i class="fa-solid fa-location-dot"></i> Россия</div>
+          </div>
+        </div>
+
+        <hr class="resume-hr">
+
+        <div class="resume-section">
+          <h4>Опыт работы</h4>
+          <div class="resume-project-item">
+            <strong>ООО «МЗ Прогресс» (3 года) — Системный администратор / Веб-дизайнер</strong>
+            <p style="margin-top: 4px;">
+              • Администрирование ИТ-инфраструктуры, серверов и корпоративных сетей. Техподдержка пользователей.<br>
+              • Разработка и запуск с нуля веб-сайтов для 3 компаний группы (UX/UI, дизайн интерфейсов).<br>
+              • Внедрение ИИ-инструментов (Cursor, Claude, ChatGPT, Grok, Antigravity) в рабочий пайплайн.<br>
+              • Работа по SLA и KPI: соблюдение проектных дедлайнов в 90%+ случаев благодаря автоматизации.<br>
+              • <em>Кейс:</em> Разработка многостраничного сайта за 9 дней вместо 14 с нулевым внешним бюджетом.
+            </p>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h4>Ключевые навыки и ИИ-стек</h4>
+          <div class="resume-skills-tags">
+            <span>Системное администрирование</span>
+            <span>Сети и Сервера</span>
+            <span>AI-конвейер & Prompting</span>
+            <span>Cursor IDE</span>
+            <span>Claude & ChatGPT</span>
+            <span>Antigravity</span>
+            <span>Grok</span>
+            <span>Node.js & Express</span>
+            <span>SQLite</span>
+            <span>JavaScript (ES6+)</span>
+            <span>HTML5 Canvas</span>
+            <span>CSS3 / Responsive</span>
+            <span>Git & GitHub</span>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h4>Практические веб-проекты</h4>
+          <div class="resume-project-item">
+            <strong>1. Сервис аренды строительной техники «СпецТехАренда» (Fullstack)</strong>
+            <p>Бэкенд на Node.js/Express/SQLite, JWT-авторизация в HttpOnly cookies, ролевая модель, каталог техники, личный кабинет пользователя, админ-панель.</p>
+          </div>
+          <div class="resume-project-item">
+            <strong>2. Интерактивная космическая платформа «STELLARIS» (Frontend & Canvas)</strong>
+            <p>Процедурная графика звездного неба на HTML5 Canvas 2D, симулятор гравитации, интерактивный справочник планет, админка управления контентом.</p>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h4>Личные качества</h4>
+          <p>Высокая скорость переключения между сложными техническими и творческими задачами, системный подход, ответственность за бесперебойность инфраструктуры и соблюдение сроков.</p>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="window.print()">
+          <i class="fa-solid fa-print"></i>
+          <span>Распечатать / Сохранить в PDF</span>
+        </button>
+        <button class="btn btn-outline" onclick="closeModal('modal-resume')">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипт портфолио -->
+  <script src="js/main.js"></script>
+</body>
+</html>

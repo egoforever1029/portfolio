@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Интерактивное космическое путешествие: исследуйте планеты, изучайте историю освоения космоса и попробуйте симулятор гравитации.">
+    <title>Космическая Одиссея — Исследование Вселенной</title>
+    <!-- Google Fonts: Orbitron (Sci-Fi) & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome для космических иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Стили -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Фоновый холст для интерактивных звезд -->
+    <canvas id="stars-canvas"></canvas>
+
+    <!-- Кастомный курсор -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+
+    <!-- Шапка сайта -->
+    <header class="main-header">
+        <div class="logo">
+            <i class="fa-solid fa-shuttle-space"></i>
+            <span>STELLARIS</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="#hero" class="nav-link active">Главная</a>
+            <a href="#explorer" class="nav-link">Планеты</a>
+            <a href="#timeline" class="nav-link">История</a>
+            <a href="#sandbox" class="nav-link">Гравитация</a>
+            <a href="#control" class="nav-link btn-glow">Центр связи</a>
+        </nav>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Главный экран (Hero) -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg-nebula"></div>
+        <div class="hero-content">
+            <div class="hud-tag">СИСТЕМА АКТИВИРОВАНА // ВЕРСИЯ 2.06</div>
+            <h1 class="glitch-title" data-text="КОСМИЧЕСКАЯ ОДИССЕЯ">КОСМИЧЕСКАЯ ОДИССЕЯ</h1>
+            <p class="hero-subtitle">Интерактивное погружение в неизведанные глубины космоса. Откройте для себя тайны планет, гравитационные аномалии и вехи освоения Вселенной.</p>
+            <div class="hero-cta">
+                <a href="#explorer" class="btn btn-primary">
+                    <span class="btn-text">Начать экспедицию</span>
+                    <i class="fa-solid fa-compass-drafting"></i>
+                </a>
+                <a href="#sandbox" class="btn btn-secondary">
+                    <span class="btn-text">Симулятор</span>
+                    <i class="fa-solid fa-atom"></i>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Листайте вниз</span>
+            <div class="mouse-icon">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Исследователь планет -->
+    <section id="explorer" class="explorer-section reveal-section">
+        <div class="section-header">
+            <span class="subtitle">Интерактивный каталог</span>
+            <h2 class="section-title">Солнечная система</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="explorer-container">
+            <!-- Вкладки выбора планеты -->
+            <div class="planet-tabs">
+                <button class="planet-tab active" data-planet="mars">
+                    <span class="num">01</span>
+                    <span class="name">Марс</span>
+                </button>
+                <button class="planet-tab" data-planet="jupiter">
+                    <span class="num">02</span>
+                    <span class="name">Юпитер</span>
+                </button>
+                <button class="planet-tab" data-planet="saturn">
+                    <span class="num">03</span>
+                    <span class="name">Сатурн</span>
+                </button>
+            </div>
+
+            <!-- Контент планет -->
+            <div class="planet-showcase">
+                <div class="planet-visual">
+                    <div class="planet-glow"></div>
+                    <img id="planet-img" src="assets/mars.jpg" alt="Марс" class="planet-image active">
+                </div>
+                
+                <div class="planet-info-card glass-card">
+                    <h3 id="planet-title" class="planet-name">Марс</h3>
+                    <p id="planet-desc" class="planet-description">
+                        Четвертая планета от Солнца, названная в честь древнеримского бога войны. Также известна как Красная планета из-за высокого содержания оксида железа на ее поверхности. Здесь находятся гигантские вулканы и каньоны.
+                    </p>
+                    
+                    <div class="planet-stats">
+                        <div class="stat-box">
+                            <span class="stat-label"><i class="fa-solid fa-weight-hanging"></i> Сила тяжести</span>
+                            <span id="planet-gravity" class="stat-value">3.71 м/с²</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label"><i class="fa-solid fa-ruler-horizontal"></i> От Солнца</span>
+                            <span id="planet-distance" class="stat-value">227.9 млн км</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label"><i class="fa-solid fa-temperature-half"></i> Температура</span>
+                            <span id="planet-temp" class="stat-value">-63 °C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Космический путь (Timeline) -->
+    <section id="timeline" class="timeline-section reveal-section">
+        <div class="section-header">
+            <span class="subtitle">Хронология прогресса</span>
+            <h2 class="section-title">Вехи космонавтики</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <!-- Событие 1 -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card">
+                    <span class="date">1957</span>
+                    <h4>Первый искусственный спутник</h4>
+                    <p>Запуск Спутника-1 положил начало космической эре. Человечество впервые вывело искусственный объект на околоземную орбиту.</p>
+                </div>
+            </div>
+
+            <!-- Событие 2 -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card">
+                    <span class="date">1961</span>
+                    <h4>Первый человек в космосе</h4>
+                    <p>Юрий Гагарин совершил легендарный полет на корабле «Восток-1», обогнув Землю за 108 минут и открыв дорогу пилотируемой космонавтике.</p>
+                </div>
+            </div>
+
+            <!-- Событие 3 -->
+            <div class="timeline-item left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card">
+                    <span class="date">1969</span>
+                    <h4>Высадка на Луну</h4>
+                    <p>Американский астронавт Нил Армстронг ступил на поверхность Луны со словами: «Это один маленький шаг для человека, но гигантский скачок для всего человечества».</p>
+                </div>
+            </div>
+
+            <!-- Событие 4 -->
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card">
+                    <span class="date">2020+</span>
+                    <h4>Эра коммерческого космоса</h4>
+                    <p>Частные компании, такие как SpaceX, произвели революцию в ракетостроении с многоразовыми кораблями, приближая колонизацию Марса.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Симулятор гравитации (Sandbox) -->
+    <section id="sandbox" class="sandbox-section reveal-section">
+        <div class="section-header">
+            <span class="subtitle">Интерактивный эксперимент</span>
+            <h2 class="section-title">Гравитационная Сингулярность</h2>
+            <div class="divider"></div>
+            <p class="section-description">Кликните мышью по холсту внизу, чтобы создать Черную Дыру и затянуть космические частицы в гравитационную воронку.</p>
+        </div>
+
+        <div class="sandbox-container glass-card">
+            <div class="sandbox-controls">
+                <button id="btn-reset-particles" class="btn btn-small btn-secondary">
+                    <i class="fa-solid fa-rotate-left"></i> Сбросить симуляцию
+                </button>
+                <div class="control-indicator">
+                    <i class="fa-solid fa-circle-nodes"></i> <span id="particle-count">Частицы: 150</span>
+                </div>
+            </div>
+            <div class="canvas-wrapper">
+                <canvas id="sandbox-canvas"></canvas>
+                <div class="canvas-hint">Кликните по экрану</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма «Центр управления» (Contact) -->
+    <section id="control" class="control-section reveal-section">
+        <div class="section-header">
+            <span class="subtitle">Присоединяйтесь к нам</span>
+            <h2 class="section-title">Центр Управления Полетами</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="control-container glass-card">
+            <div class="control-info">
+                <h3>Зарегистрировать экипаж</h3>
+                <p>Введите ваши позывные и контактные данные, чтобы получать сводки межзвездных экспедиций и предупреждения о солнечных вспышках.</p>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-satellite-dish"></i> Частота вещания: 1420 МГц</li>
+                    <li><i class="fa-solid fa-envelope"></i> E-mail: mission-control@stellaris.space</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Координаты: Сектор 4, Спиральный рукав Ориона</li>
+                </ul>
+            </div>
+            
+            <form id="mission-form" class="mission-form">
+                <div class="form-group">
+                    <input type="text" id="callsign" required placeholder=" ">
+                    <label for="callsign">Ваш Позывной / Имя</label>
+                    <div class="bar"></div>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" required placeholder=" ">
+                    <label for="email">Электронная Почта связи</label>
+                    <div class="bar"></div>
+                </div>
+
+                <div class="form-group">
+                    <select id="sector" required>
+                        <option value="" disabled selected hidden></option>
+                        <option value="earth">Орбита Земли</option>
+                        <option value="mars">Купол Марса</option>
+                        <option value="belt">Пояс Астероидов</option>
+                        <option value="outer">Внешние системы</option>
+                    </select>
+                    <label for="sector" class="select-label">Сектор дислокации</label>
+                    <div class="bar"></div>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message" required rows="3" placeholder=" "></textarea>
+                    <label for="message">Шифрованное сообщение в Центр</label>
+                    <div class="bar"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span class="btn-text">Отправить на Орбиту</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 STELLARIS. Все права защищены. Разработано для космических первопроходцев. | <a href="admin.html" class="admin-link" style="color: var(--color-neon-cyan); text-decoration: none; font-family: var(--font-headers); font-size: 0.75rem; margin-left: 10px; letter-spacing: 1px;"><i class="fa-solid fa-gears"></i> Админ-панель</a></p>
+            <div class="footer-socials">
+                <a href="#"><i class="fa-brands fa-discord"></i></a>
+                <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Логика -->
+    <script src="app.js"></script>
+</body>
+</html>
